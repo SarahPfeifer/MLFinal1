@@ -1,4 +1,4 @@
-pip install ucimlrepo
+
 
 from ucimlrepo import fetch_ucirepo 
   
