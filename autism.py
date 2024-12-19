@@ -51,12 +51,12 @@ X_encoded = pd.DataFrame(encoded_data.toarray(), columns=ohe.get_feature_names_o
 X = pd.concat([X.drop('country_of_res', axis=1), X_encoded], axis=1)
 
 #Split Dataset
-
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 #Random Forest Baseline
-
+n_estimators=[1,5,10,20,30,40,50,100]
 rfc = RandomForestClassifier(n_estimators=100, random_state=42).fit(X_train,y_train)
 yhat = rfc.predict(X_test)
+
 accuracy = accuracy_score(y_test, yhat)
 print('Accuracy:', accuracy)
